@@ -1,53 +1,1075 @@
-body {
-    margin: 0;
-    font-family: sans-serif;
-    background: #0b0b0b;
-    color: #eaeaea;
+/* =======================================================
+   MonfaredIR
+   محمدجواد خواجه (منفرد)
+   Style.css
+======================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap');
+
+/* ---------- Reset ---------- */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 25px;
+html{
+
+scroll-behavior:smooth;
+
 }
 
-.hero {
-    text-align: center;
-    padding: 60px 20px;
+body{
+
+font-family:'Vazirmatn',sans-serif;
+
+background:#090909;
+
+color:#ededed;
+
+line-height:2;
+
+overflow-x:hidden;
+
 }
 
-.hero h1 {
-    font-size: 38px;
+/* ---------- Variables ---------- */
+
+:root{
+
+--background:#090909;
+
+--background2:#111111;
+
+--card:#171717;
+
+--border:#2d2d2d;
+
+--text:#efefef;
+
+--text2:#a8a8a8;
+
+--gold:#d4b06d;
+
+--shadow:0 12px 35px rgba(0,0,0,.45);
+
+--radius:18px;
+
+--transition:.35s ease;
+
 }
 
-.menu, .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+/* ---------- Selection ---------- */
+
+::selection{
+
+background:var(--gold);
+
+color:#000;
+
 }
 
-.card {
-    display: block;
-    padding: 18px;
-    background: #1a1a1a;
-    border-radius: 12px;
-    border: 1px solid #2a2a2a;
-    text-align: center;
-    transition: 0.3s;
-    color: white;
-    text-decoration: none;
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar{
+
+width:10px;
+
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #555;
+::-webkit-scrollbar-track{
+
+background:#111;
+
 }
 
-a {
-    color: #aaa;
-    text-decoration: none;
+::-webkit-scrollbar-thumb{
+
+background:#555;
+
+border-radius:30px;
+
 }
 
-a:hover {
-    color: #fff;
+::-webkit-scrollbar-thumb:hover{
+
+background:#777;
+
 }
+
+/* ---------- Links ---------- */
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+transition:var(--transition);
+
+}
+
+/* ---------- Images ---------- */
+
+img{
+
+display:block;
+
+max-width:100%;
+
+}
+
+/* ---------- Container ---------- */
+
+.container{
+
+width:min(1100px,92%);
+
+margin:auto;
+
+padding:50px 0;
+
+}
+
+/* =======================================================
+                    HOME PAGE
+======================================================= */
+
+.home{
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+/* ---------- Hero ---------- */
+
+.hero{
+
+text-align:center;
+
+padding:70px 20px;
+
+animation:fade 1s ease;
+
+}
+
+.hero h1{
+
+font-size:3rem;
+
+font-weight:700;
+
+letter-spacing:.5px;
+
+margin-bottom:10px;
+
+}
+
+.hero h2{
+
+font-size:1.3rem;
+
+font-weight:300;
+
+color:var(--gold);
+
+margin-bottom:25px;
+
+}
+
+.quote{
+
+max-width:700px;
+
+margin:auto;
+
+color:var(--text2);
+
+font-size:1.05rem;
+
+font-style:italic;
+
+}
+
+/* ---------- Cards ---------- */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:24px;
+
+margin-top:50px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.03);
+
+backdrop-filter:blur(16px);
+
+border:1px solid var(--border);
+
+border-radius:var(--radius);
+
+padding:32px;
+
+text-align:center;
+
+box-shadow:var(--shadow);
+
+transition:var(--transition);
+
+cursor:pointer;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+border-color:var(--gold);
+
+box-shadow:0 18px 45px rgba(0,0,0,.55);
+
+}
+
+.card span{
+
+display:block;
+
+font-size:2rem;
+
+margin-bottom:18px;
+
+}
+
+.card h3{
+
+font-size:1.35rem;
+
+margin-bottom:12px;
+
+}
+
+.card p{
+
+font-size:.95rem;
+
+color:var(--text2);
+
+}
+/* =======================================================
+                POEMS PAGE
+======================================================= */
+
+.page-header{
+
+text-align:center;
+
+margin:20px 0 45px;
+
+animation:fade .9s ease;
+
+}
+
+.page-header h1{
+
+font-size:2.3rem;
+
+margin-bottom:10px;
+
+}
+
+.page-header p{
+
+color:var(--text2);
+
+font-size:1rem;
+
+}
+
+/* ---------- Back Button ---------- */
+
+.back,
+.back-btn{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:8px;
+
+padding:12px 22px;
+
+margin-bottom:40px;
+
+border-radius:30px;
+
+border:1px solid var(--border);
+
+background:rgba(255,255,255,.03);
+
+transition:var(--transition);
+
+}
+
+.back:hover,
+.back-btn:hover{
+
+border-color:var(--gold);
+
+padding-right:30px;
+
+}
+
+/* ---------- Poems ---------- */
+
+.poems-list{
+
+display:grid;
+
+gap:18px;
+
+margin-bottom:60px;
+
+}
+
+.poem-card{
+
+display:block;
+
+padding:24px 28px;
+
+background:rgba(255,255,255,.025);
+
+border:1px solid var(--border);
+
+border-radius:16px;
+
+transition:var(--transition);
+
+box-shadow:var(--shadow);
+
+}
+
+.poem-card:hover{
+
+border-color:var(--gold);
+
+transform:translateY(-5px);
+
+background:rgba(255,255,255,.04);
+
+}
+
+.poem-card h2{
+
+font-size:1.2rem;
+
+font-weight:500;
+
+transition:var(--transition);
+
+}
+
+.poem-card:hover h2{
+
+color:var(--gold);
+
+padding-right:10px;
+
+}
+
+/* ---------- Collections ---------- */
+
+.collections{
+
+margin-top:70px;
+
+}
+
+.collections h2{
+
+text-align:center;
+
+margin-bottom:30px;
+
+font-size:1.8rem;
+
+}
+
+.collection-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:24px;
+
+}
+
+.collection-card{
+
+padding:28px;
+
+background:rgba(255,255,255,.03);
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+text-align:center;
+
+transition:var(--transition);
+
+box-shadow:var(--shadow);
+
+}
+
+.collection-card:hover{
+
+transform:translateY(-7px);
+
+border-color:var(--gold);
+
+}
+
+.collection-card h3{
+
+margin-bottom:12px;
+
+font-size:1.3rem;
+
+}
+
+.collection-card p{
+
+color:var(--text2);
+
+}
+
+/* ---------- Latest ---------- */
+
+.latest{
+
+margin:80px auto;
+
+padding:35px;
+
+text-align:center;
+
+background:rgba(255,255,255,.02);
+
+border:1px solid var(--border);
+
+border-radius:20px;
+
+}
+
+.latest h3{
+
+font-size:1.4rem;
+
+margin-bottom:15px;
+
+}
+
+.latest-link{
+
+font-size:1.35rem;
+
+color:var(--gold);
+
+display:inline-block;
+
+transition:var(--transition);
+
+}
+
+.latest-link:hover{
+
+transform:scale(1.06);
+
+letter-spacing:1px;
+
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+
+margin-top:80px;
+
+padding:35px 0;
+
+border-top:1px solid #222;
+
+text-align:center;
+
+color:#8d8d8d;
+
+font-size:.92rem;
+
+}
+
+footer p{
+
+margin:8px 0;
+
+}
+/* =======================================================
+                SINGLE POEM PAGE
+======================================================= */
+
+.poem{
+
+max-width:850px;
+
+margin:auto;
+
+padding:20px;
+
+animation:fade .9s ease;
+
+}
+
+.poem-title{
+
+text-align:center;
+
+font-size:2.2rem;
+
+font-weight:700;
+
+margin-bottom:45px;
+
+color:var(--gold);
+
+letter-spacing:.5px;
+
+}
+
+.poem-text{
+
+text-align:center;
+
+font-size:1.18rem;
+
+line-height:2.6;
+
+white-space:pre-line;
+
+color:var(--text);
+
+padding:15px 5px;
+
+}
+
+.poem-text p{
+
+margin-bottom:22px;
+
+}
+
+.poem-text br{
+
+line-height:3;
+
+}
+
+/* ---------- Divider ---------- */
+
+.divider{
+
+width:90px;
+
+height:2px;
+
+background:var(--gold);
+
+margin:50px auto;
+
+opacity:.6;
+
+border-radius:30px;
+
+}
+
+/* ---------- Other Poems ---------- */
+
+.more-poems{
+
+margin-top:70px;
+
+}
+
+.more-poems h2{
+
+text-align:center;
+
+font-size:1.5rem;
+
+margin-bottom:25px;
+
+}
+
+.more-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:18px;
+
+}
+
+.more-grid a{
+
+display:block;
+
+padding:18px;
+
+background:rgba(255,255,255,.03);
+
+border:1px solid var(--border);
+
+border-radius:16px;
+
+text-align:center;
+
+transition:var(--transition);
+
+}
+
+.more-grid a:hover{
+
+border-color:var(--gold);
+
+transform:translateY(-5px);
+
+}
+
+/* =======================================================
+                ABOUT PAGE
+======================================================= */
+
+.about{
+
+max-width:850px;
+
+margin:auto;
+
+padding:20px;
+
+}
+
+.about h1{
+
+text-align:center;
+
+font-size:2.3rem;
+
+margin-bottom:35px;
+
+}
+
+.about p{
+
+font-size:1.08rem;
+
+line-height:2.4;
+
+color:var(--text2);
+
+margin-bottom:22px;
+
+}
+
+.about strong{
+
+color:var(--gold);
+
+font-weight:600;
+
+}
+
+/* =======================================================
+                DOBEYTI PAGE
+======================================================= */
+
+.dobeyti{
+
+max-width:850px;
+
+margin:auto;
+
+}
+
+.dobeyti h1{
+
+text-align:center;
+
+font-size:2.2rem;
+
+margin-bottom:40px;
+
+}
+
+.dobeyti-item{
+
+padding:28px;
+
+margin-bottom:25px;
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+background:rgba(255,255,255,.025);
+
+transition:var(--transition);
+
+}
+
+.dobeyti-item:hover{
+
+border-color:var(--gold);
+
+transform:translateY(-4px);
+
+}
+
+.dobeyti-item p{
+
+text-align:center;
+
+line-height:2.5;
+
+}
+
+/* =======================================================
+            DAFTAR MONFARED
+======================================================= */
+
+.note{
+
+padding:26px;
+
+margin-bottom:24px;
+
+background:rgba(255,255,255,.025);
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+transition:var(--transition);
+
+}
+
+.note:hover{
+
+border-color:var(--gold);
+
+transform:translateY(-4px);
+
+}
+
+.note p{
+
+text-align:center;
+
+line-height:2.5;
+
+font-size:1.05rem;
+
+}
+/* =======================================================
+                RESPONSIVE
+======================================================= */
+
+@media (max-width:900px){
+
+.hero{
+
+padding:50px 15px;
+
+}
+
+.hero h1{
+
+font-size:2.3rem;
+
+}
+
+.hero h2{
+
+font-size:1.1rem;
+
+}
+
+.quote{
+
+font-size:.95rem;
+
+}
+
+.cards,
+.collection-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.poem-title{
+
+font-size:1.8rem;
+
+}
+
+.poem-text{
+
+font-size:1.08rem;
+
+line-height:2.4;
+
+}
+
+}
+
+@media (max-width:600px){
+
+.container{
+
+width:94%;
+
+padding:35px 0;
+
+}
+
+.card,
+.poem-card,
+.collection-card,
+.note,
+.dobeyti-item{
+
+padding:20px;
+
+}
+
+.hero h1{
+
+font-size:2rem;
+
+}
+
+.page-header h1{
+
+font-size:1.9rem;
+
+}
+
+.about h1,
+.dobeyti h1{
+
+font-size:1.9rem;
+
+}
+
+.poem-title{
+
+font-size:1.6rem;
+
+}
+
+.poem-text{
+
+font-size:1rem;
+
+}
+
+.latest{
+
+padding:25px;
+
+}
+
+}
+
+/* =======================================================
+                HOVER EFFECTS
+======================================================= */
+
+.card,
+.poem-card,
+.collection-card,
+.note,
+.dobeyti-item,
+.more-grid a{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.card::before,
+.poem-card::before,
+.collection-card::before,
+.note::before,
+.dobeyti-item::before,
+.more-grid a::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+right:-120%;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(90deg,
+transparent,
+rgba(255,255,255,.05),
+transparent);
+
+transition:.8s;
+
+}
+
+.card:hover::before,
+.poem-card:hover::before,
+.collection-card:hover::before,
+.note:hover::before,
+.dobeyti-item:hover::before,
+.more-grid a:hover::before{
+
+right:120%;
+
+}
+
+/* =======================================================
+                GOLD GLOW
+======================================================= */
+
+.hero h1:hover,
+.poem-title:hover{
+
+text-shadow:
+
+0 0 10px rgba(212,176,109,.25),
+
+0 0 25px rgba(212,176,109,.18);
+
+transition:.4s;
+
+}
+
+/* =======================================================
+                BUTTON EFFECT
+======================================================= */
+
+.back,
+.back-btn{
+
+cursor:pointer;
+
+}
+
+.back:active,
+.back-btn:active{
+
+transform:scale(.96);
+
+}
+
+/* =======================================================
+                CARD CLICK
+======================================================= */
+
+.card:active,
+.poem-card:active,
+.collection-card:active{
+
+transform:scale(.98);
+
+}
+
+/* =======================================================
+                SMOOTH FADE
+======================================================= */
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(18px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.hero,
+.page-header,
+.card,
+.poem-card,
+.collection-card,
+.note,
+.dobeyti-item,
+.latest,
+.poem{
+
+animation:fade .8s ease;
+
+}
+
+/* =======================================================
+                TEXT
+======================================================= */
+
+h1,h2,h3{
+
+font-weight:700;
+
+}
+
+p{
+
+font-weight:400;
+
+}
+
+.gold{
+
+color:var(--gold);
+
+}
+
+/* =======================================================
+                END
+======================================================= */
