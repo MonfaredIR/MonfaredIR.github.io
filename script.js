@@ -1,7 +1,7 @@
 /* ==========================================
    MonfaredIR
    script.js
-   Version 2.0
+   Version 3.0
 ========================================== */
 
 "use strict";
@@ -101,6 +101,7 @@ console.log("Searching:",query);
 }
 
 window.searchPoems=searchPoems;
+
 /* ==========================================
         Scroll To Top
 ========================================== */
@@ -206,7 +207,6 @@ if(year){
 year.textContent=new Date().getFullYear();
 
 }
-
 /* ==========================================
         Page Loaded
 ========================================== */
@@ -214,6 +214,78 @@ year.textContent=new Date().getFullYear();
 window.addEventListener("load",()=>{
 
 document.body.classList.add("loaded");
+
+});
+
+/* ==========================================
+        Poem Publish Date
+========================================== */
+
+const poemDates={
+
+"man.html":"۳ اسفند ۱۳۹۷",
+
+"rah-man.html":"۱۶ شهریور ۱۳۹۹",
+
+"maghaze-khodkoshi.html":"۲۱ شهریور ۱۳۹۹",
+
+"sandali-choobi.html":"۱۳ آبان ۱۳۹۹",
+
+"ghahghara.html":"۱۴ آبان ۱۳۹۹",
+
+"miresad-roozi.html":"۱۶ آبان ۱۳۹۹",
+
+"johar-ehsas.html":"۲۳ مرداد ۱۴۰۰",
+
+"sarbaz.html":"۳۰ تیر ۱۴۰۰",
+
+"cheshm-entezar.html":"۳۱ مرداد ۱۴۰۱",
+
+"sahne-akhar.html":"۲۰ مرداد ۱۴۰۱",
+
+"atashfeshan-eshgh.html":"۱۵ مرداد ۱۴۰۱",
+
+"dorough.html":"۱۵ مرداد ۱۴۰۱",
+
+"khaneh-bedoosh.html":"۱۶ مرداد ۱۴۰۱",
+
+"naji.html":"۷ شهریور ۱۴۰۲",
+
+"atash-eshgh.html":"۱۲ مهر ۱۴۰۲",
+
+"monfared.html":"۳ مرداد ۱۴۰۵"
+
+};
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const currentPage=location.pathname.split("/").pop();
+
+const morePoems=document.querySelector(".more-poems");
+
+if(!poemDates[currentPage]||!morePoems){
+
+return;
+
+}
+
+const info=document.createElement("div");
+
+info.className="poem-date";
+
+info.innerHTML=`
+
+<div class="poem-date-box">
+
+<div>📅 انتشار: ${poemDates[currentPage]}</div>
+
+<div>✍️ محمدجواد خواجه (منفرد)</div>
+
+</div>
+
+`;
+
+morePoems.parentNode.insertBefore(info,morePoems);
 
 });
 
