@@ -1,7 +1,7 @@
 /* ==========================================
    MonfaredIR
    script.js
-   Version 4.0
+   Version 5.0
 ========================================== */
 
 "use strict";
@@ -24,27 +24,23 @@ entry.target.classList.add("fade");
 
 });
 
-},{
-
-threshold:.15
-
-});
+},{threshold:.15});
 
 document.querySelectorAll(
 
 ".card,.poem-card,.collection-card,.note,.dobeyti-item,.latest,.hero,.page-header,.poem"
 
-).forEach(item=>observer.observe(item));
+).forEach(el=>observer.observe(el));
 
 /* ==========================================
         Active Page
 ========================================== */
 
+const currentPage=location.pathname.split("/").pop();
+
 document.querySelectorAll("a").forEach(link=>{
 
-const href=link.getAttribute("href");
-
-if(href===location.pathname.split("/").pop()){
+if(link.getAttribute("href")===currentPage){
 
 link.classList.add("active");
 
@@ -62,19 +58,19 @@ document.querySelectorAll(
 
 ).forEach(card=>{
 
-card.addEventListener("click",function(e){
+card.addEventListener("click",e=>{
 
 const ripple=document.createElement("span");
 
-const rect=this.getBoundingClientRect();
+const rect=card.getBoundingClientRect();
 
 ripple.className="ripple";
 
-ripple.style.left=e.clientX-rect.left+"px";
+ripple.style.left=(e.clientX-rect.left)+"px";
 
-ripple.style.top=e.clientY-rect.top+"px";
+ripple.style.top=(e.clientY-rect.top)+"px";
 
-this.appendChild(ripple);
+card.appendChild(ripple);
 
 setTimeout(()=>ripple.remove(),600);
 
@@ -83,7 +79,7 @@ setTimeout(()=>ripple.remove(),600);
 });
 
 /* ==========================================
-        Search (Future)
+        Search
 ========================================== */
 
 function searchPoems(query){
@@ -104,11 +100,17 @@ if(topButton){
 
 window.addEventListener("scroll",()=>{
 
-topButton.classList.toggle("show",window.scrollY>500);
+topButton.classList.toggle(
+
+"show",
+
+window.scrollY>500
+
+);
 
 });
 
-topButton.addEventListener("click",()=>{
+topButton.onclick=()=>{
 
 window.scrollTo({
 
@@ -118,10 +120,9 @@ behavior:"smooth"
 
 });
 
-});
+};
 
 }
-
 /* ==========================================
         Remember Last Poem
 ========================================== */
@@ -134,7 +135,7 @@ const title=card.querySelector("h2");
 
 if(title){
 
-localStorage.setItem("lastPoem",title.innerText);
+localStorage.setItem("lastPoem",title.textContent.trim());
 
 }
 
@@ -142,19 +143,19 @@ localStorage.setItem("lastPoem",title.innerText);
 
 });
 
-const latestRead=localStorage.getItem("lastPoem");
+const lastPoem=localStorage.getItem("lastPoem");
 
-if(latestRead){
+if(lastPoem){
 
-console.log("آخرین شعر مطالعه شده:",latestRead);
+console.log("آخرین شعر مطالعه شده:",lastPoem);
 
 }
 
 /* ==========================================
-        Keyboard Shortcut
+        Keyboard Shortcuts
 ========================================== */
 
-document.addEventListener("keydown",(e)=>{
+document.addEventListener("keydown",e=>{
 
 if(e.key==="Home"){
 
@@ -171,7 +172,7 @@ behavior:"smooth"
 });
 
 /* ==========================================
-        Lazy Images
+        Lazy Loading Images
 ========================================== */
 
 document.querySelectorAll("img").forEach(img=>{
@@ -191,103 +192,134 @@ if(year){
 year.textContent=new Date().getFullYear();
 
 }
+
 /* ==========================================
-        Page Loaded
+        Publish Dates
+========================================== */
+
+const poemDates={
+
+"man.html":"۳ اسفند ۱۳۹۷",
+
+"rah-man.html":"۱۶ شهریور ۱۳۹۹",
+
+"maghaze-khodkoshi.html":"۲۱ شهریور ۱۳۹۹",
+
+"sandali-choobi.html":"۱۳ آبان ۱۳۹۹",
+
+"ghahghara.html":"۱۴ آبان ۱۳۹۹",
+
+"miresad-roozi.html":"۱۶ آبان ۱۳۹۹",
+
+"johar-ehsas.html":"۲۳ مرداد ۱۴۰۰",
+
+"sarbaz.html":"۳۰ تیر ۱۴۰۰",
+
+"cheshm-entezar.html":"۳۱ مرداد ۱۴۰۱",
+
+"sahne-akhar.html":"۲۰ مرداد ۱۴۰۱",
+
+"atashfeshan-eshgh.html":"۱۵ مرداد ۱۴۰۱",
+
+"dorough.html":"۱۵ مرداد ۱۴۰۱",
+
+"khaneh-bedoosh.html":"۱۶ مرداد ۱۴۰۱",
+
+"naji.html":"۷ شهریور ۱۴۰۲",
+
+"atash-eshgh.html":"۱۲ مهر ۱۴۰۲",
+
+"monfared.html":"۳ مرداد ۱۴۰۵"
+
+};
+/* ==========================================
+        Auto Publish Date
+        (HTML Independent)
 ========================================== */
 
 window.addEventListener("load",()=>{
 
 document.body.classList.add("loaded");
 
-});
-
-/* ==========================================
-        Publish Date System
-        (No HTML Changes Required)
-========================================== */
-
-const poemDates={
-
-"man.html":"۳ اسفند ۱۳۹۷",
-"rah-man.html":"۱۶ شهریور ۱۳۹۹",
-"maghaze-khodkoshi.html":"۲۱ شهریور ۱۳۹۹",
-"sandali-choobi.html":"۱۳ آبان ۱۳۹۹",
-"ghahghara.html":"۱۴ آبان ۱۳۹۹",
-"miresad-roozi.html":"۱۶ آبان ۱۳۹۹",
-"johar-ehsas.html":"۲۳ مرداد ۱۴۰۰",
-"sarbaz.html":"۳۰ تیر ۱۴۰۰",
-"cheshm-entezar.html":"۳۱ مرداد ۱۴۰۱",
-"sahne-akhar.html":"۲۰ مرداد ۱۴۰۱",
-"atashfeshan-eshgh.html":"۱۵ مرداد ۱۴۰۱",
-"dorough.html":"۱۵ مرداد ۱۴۰۱",
-"khaneh-bedoosh.html":"۱۶ مرداد ۱۴۰۱",
-"naji.html":"۷ شهریور ۱۴۰۲",
-"atash-eshgh.html":"۱۲ مهر ۱۴۰۲",
-"monfared.html":"۳ مرداد ۱۴۰۵"
-
-};
-
-document.addEventListener("DOMContentLoaded",()=>{
-
 const file=location.pathname.split("/").pop();
 
 if(!poemDates[file]) return;
 
-/* پیدا کردن متن شعر بدون وابستگی به کلاس خاص */
+/* پیدا کردن بهترین محل برای قرار دادن تاریخ */
 
-let poemContainer=
+const targets=[
+document.querySelector("article"),
+document.querySelector("main"),
+document.querySelector(".container"),
+document.body
+];
 
-document.querySelector(".poem-text") ||
+const target=targets.find(Boolean);
 
-document.querySelector(".poem") ||
+if(!target) return;
 
-document.querySelector("article") ||
+/* اگر قبلاً اضافه شده باشد دوباره نسازد */
 
-document.querySelector("main") ||
+if(document.getElementById("publish-date")) return;
 
-document.querySelector(".container");
+/* ساخت باکس */
 
-if(!poemContainer) return;
+const box=document.createElement("section");
 
-const dateBox=document.createElement("div");
+box.id="publish-date";
 
-dateBox.style.margin="40px auto";
-dateBox.style.maxWidth="650px";
-dateBox.style.padding="18px";
-dateBox.style.border="1px solid #2d2d2d";
-dateBox.style.borderRadius="18px";
-dateBox.style.background="rgba(255,255,255,.03)";
-dateBox.style.textAlign="center";
-dateBox.style.lineHeight="2";
-dateBox.style.color="#d8d8d8";
-dateBox.style.fontFamily="'Vazirmatn',sans-serif";
-dateBox.style.boxShadow="0 10px 30px rgba(0,0,0,.35)";
+box.innerHTML=`
+<div style="
+margin:45px auto;
+padding:18px 20px;
+max-width:700px;
+border:1px solid #2d2d2d;
+border-radius:18px;
+background:rgba(255,255,255,.03);
+text-align:center;
+font-family:'Vazirmatn',sans-serif;
+line-height:2;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+">
 
-dateBox.innerHTML=`
-
-<div style="font-size:1rem;color:#d4b06d;font-weight:700;">
+<div style="
+color:#d4b06d;
+font-size:1.02rem;
+font-weight:700;
+margin-bottom:8px;
+">
 📅 تاریخ انتشار
 </div>
 
-<div style="margin-top:10px;">
+<div style="
+color:#e8e8e8;
+font-size:1rem;
+">
 ${poemDates[file]}
 </div>
 
-<div style="margin-top:8px;font-size:.92rem;color:#999;">
+<div style="
+margin-top:8px;
+color:#9d9d9d;
+font-size:.9rem;
+">
 محمدجواد خواجه (منفرد)
 </div>
 
+</div>
 `;
 
-/* اگر متن شعر وجود داشت بعد از آن قرار بده */
+/* درج قبل از فوتر در صورت وجود */
 
-if(document.querySelector(".poem-text")){
+const footer=document.querySelector("footer");
 
-document.querySelector(".poem-text").after(dateBox);
+if(footer){
+
+footer.parentNode.insertBefore(box,footer);
 
 }else{
 
-poemContainer.appendChild(dateBox);
+target.appendChild(box);
 
 }
 
@@ -298,11 +330,8 @@ poemContainer.appendChild(dateBox);
 ========================================== */
 
 console.log(
-
 "%cMonfared Poetry",
-
 "color:#d4b06d;font-size:16px;font-weight:bold;"
-
 );
 
 console.log("محمدجواد خواجه (منفرد)");
