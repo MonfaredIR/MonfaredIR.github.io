@@ -213,7 +213,7 @@ const poemDates={
 
 "johar-ehsas.html":"۲۳ مرداد ۱۴۰۰",
 
-"sarbaz.html":"۱۵ ۱۴۰۲ مهر",
+"sarbaz.html":" ۱۴۰۲ مهر",
 
 "cheshm-entezar.html":"۳۱ مرداد ۱۴۰۱",
 
