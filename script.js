@@ -1,4 +1,4 @@
-/* ==========================================
+خ/* ==========================================
    MonfaredIR
    script.js
    Version 5.0
@@ -213,7 +213,7 @@ const poemDates={
 
 "johar-ehsas.html":"۲۳ مرداد ۱۴۰۰",
 
-"sarbaz.html":"۳۰ تیر ۱۴۰۰",
+"sarbaz.html":"۱۵ ۱۴۰۲ مهر",
 
 "cheshm-entezar.html":"۳۱ مرداد ۱۴۰۱",
 
