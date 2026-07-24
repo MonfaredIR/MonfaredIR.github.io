@@ -1,529 +1,751 @@
 /* =======================================================
    MonfaredIR
-   محمدجواد خواجه (منفرد)
-   Style.css
+   Premium Style v2.0
+   Redesigned by ChatGPT
 ======================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
-/* ---------- Reset ---------- */
+/* =======================================================
+                    RESET
+======================================================= */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-
-scroll-behavior:smooth;
-
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
 }
 
 body{
 
-font-family:'Vazirmatn',sans-serif;
+    font-family:'Vazirmatn',sans-serif;
 
-background:#090909;
+    background:#090909;
 
-color:#ededed;
+    color:#ededed;
 
-line-height:2;
+    direction:rtl;
 
-overflow-x:hidden;
+    overflow-x:hidden;
+
+    line-height:2;
+
+    text-rendering:optimizeLegibility;
+
+    -webkit-font-smoothing:antialiased;
 
 }
 
-/* ---------- Variables ---------- */
+/* =======================================================
+                    VARIABLES
+======================================================= */
 
 :root{
 
---background:#090909;
+    --background:#090909;
 
---background2:#111111;
+    --background2:#101010;
 
---card:#171717;
+    --background3:#161616;
 
---border:#2d2d2d;
+    --card:rgba(255,255,255,.035);
 
---text:#efefef;
+    --card-hover:rgba(255,255,255,.055);
 
---text2:#a8a8a8;
+    --border:rgba(255,255,255,.08);
 
---gold:#d4b06d;
+    --border-hover:rgba(212,176,109,.45);
 
---shadow:0 12px 35px rgba(0,0,0,.45);
+    --text:#f4f4f4;
 
---radius:18px;
+    --text2:#b7b7b7;
 
---transition:.35s ease;
+    --gold:#d4b06d;
+
+    --gold2:#f0d18d;
+
+    --shadow:
+    0 12px 35px rgba(0,0,0,.45);
+
+    --shadow-hover:
+    0 18px 45px rgba(0,0,0,.55);
+
+    --radius:20px;
+
+    --transition:.35s ease;
 
 }
 
-/* ---------- Selection ---------- */
+/* =======================================================
+                    BASE
+======================================================= */
+
+body{
+
+    background:
+    radial-gradient(circle at top,
+    rgba(212,176,109,.05),
+    transparent 35%),
+
+    linear-gradient(
+    180deg,
+    #0a0a0a,
+    #090909 60%,
+    #080808);
+
+}
+
+.container{
+
+    width:min(1120px,92%);
+
+    margin:auto;
+
+    padding:55px 0;
+
+}
+
+section{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* =======================================================
+                    TYPOGRAPHY
+======================================================= */
+
+h1,
+h2,
+h3,
+h4{
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+p{
+
+    color:var(--text2);
+
+    font-weight:400;
+
+}
+
+.gold{
+
+    color:var(--gold);
+
+}
+
+/* =======================================================
+                    LINKS
+======================================================= */
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+a:hover{
+
+    color:var(--gold);
+
+}
+
+/* =======================================================
+                    IMAGES
+======================================================= */
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+/* =======================================================
+                    SELECTION
+======================================================= */
 
 ::selection{
 
-background:var(--gold);
+    background:var(--gold);
 
-color:#000;
+    color:#111;
 
 }
 
-/* ---------- Scrollbar ---------- */
+/* =======================================================
+                    SCROLLBAR
+======================================================= */
 
 ::-webkit-scrollbar{
 
-width:10px;
+    width:11px;
 
 }
 
 ::-webkit-scrollbar-track{
 
-background:#111;
+    background:#111;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-background:#555;
+    border-radius:30px;
 
-border-radius:30px;
+    background:linear-gradient(
+    180deg,
+    #5a5a5a,
+    var(--gold)
+    );
 
 }
 
 ::-webkit-scrollbar-thumb:hover{
 
-background:#777;
+    background:linear-gradient(
+    180deg,
+    #777,
+    #f0d18d
+    );
 
 }
 
-/* ---------- Links ---------- */
+/* =======================================================
+                    ANIMATION
+======================================================= */
 
-a{
+@keyframes fadeUp{
 
-text-decoration:none;
+    from{
 
-color:inherit;
+        opacity:0;
 
-transition:var(--transition);
+        transform:translateY(18px);
 
-}
+    }
 
-/* ---------- Images ---------- */
+    to{
 
-img{
+        opacity:1;
 
-display:block;
+        transform:translateY(0);
 
-max-width:100%;
-
-}
-
-/* ---------- Container ---------- */
-
-.container{
-
-width:min(1100px,92%);
-
-margin:auto;
-
-padding:50px 0;
+    }
 
 }
 
+.fade{
+
+    animation:fadeUp .8s ease both;
+
+}
+
+/* =======================================================
+                    GLASS
+======================================================= */
+
+.glass{
+
+    background:rgba(255,255,255,.03);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* =======================================================
+                    BUTTONS
+======================================================= */
+
+.button,
+.back,
+.back-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:13px 24px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid var(--border);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+.button:hover,
+.back:hover,
+.back-btn:hover{
+
+    background:rgba(255,255,255,.05);
+
+    border-color:var(--gold);
+
+    color:var(--gold);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 0 20px rgba(212,176,109,.12);
+
+}
+
+.button:active,
+.back:active,
+.back-btn:active{
+
+    transform:scale(.97);
+
+}
 /* =======================================================
                     HOME PAGE
 ======================================================= */
 
 .home{
 
-min-height:100vh;
+    min-height:100vh;
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    align-items:center;
 
-justify-content:center;
+    justify-content:center;
+
+    flex-direction:column;
 
 }
 
-/* ---------- Hero ---------- */
+/* =======================================================
+                    HERO
+======================================================= */
 
 .hero{
 
-text-align:center;
+    text-align:center;
 
-padding:70px 20px;
+    padding:90px 20px;
 
-animation:fade 1s ease;
+    animation:fadeUp .9s ease;
 
 }
 
 .hero h1{
 
-font-size:3rem;
+    font-size:3.3rem;
 
-font-weight:700;
+    font-weight:800;
 
-letter-spacing:.5px;
+    color:var(--text);
 
-margin-bottom:10px;
+    margin-bottom:14px;
+
+    letter-spacing:.5px;
+
+    transition:.35s;
+
+}
+
+.hero h1:hover{
+
+    color:var(--gold);
+
+    text-shadow:
+
+        0 0 12px rgba(212,176,109,.35),
+
+        0 0 30px rgba(212,176,109,.18);
 
 }
 
 .hero h2{
 
-font-size:1.3rem;
+    font-size:1.35rem;
 
-font-weight:300;
+    font-weight:400;
 
-color:var(--gold);
+    color:var(--gold);
 
-margin-bottom:25px;
+    margin-bottom:30px;
 
 }
 
 .quote{
 
-max-width:700px;
+    width:min(760px,95%);
 
-margin:auto;
+    margin:auto;
 
-color:var(--text2);
+    font-size:1.08rem;
 
-font-size:1.05rem;
+    color:var(--text2);
 
-font-style:italic;
+    line-height:2.3;
 
 }
 
-/* ---------- Cards ---------- */
+/* =======================================================
+                    HOME CARDS
+======================================================= */
 
 .cards{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 
-gap:24px;
+    gap:26px;
 
-margin-top:50px;
+    margin-top:60px;
 
 }
 
 .card{
 
-background:rgba(255,255,255,.03);
+    position:relative;
 
-backdrop-filter:blur(16px);
+    overflow:hidden;
 
-border:1px solid var(--border);
+    padding:34px;
 
-border-radius:var(--radius);
+    border-radius:22px;
 
-padding:32px;
+    background:linear-gradient(
 
-text-align:center;
+        180deg,
 
-box-shadow:var(--shadow);
+        rgba(255,255,255,.045),
 
-transition:var(--transition);
+        rgba(255,255,255,.02)
 
-cursor:pointer;
+    );
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(10px);
+
+    transition:.35s ease;
+
+    box-shadow:var(--shadow);
+
+    cursor:pointer;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.05),
+
+        transparent
+
+        );
+
+    transform:translateX(-140%);
+
+    transition:.8s;
+
+}
+
+.card:hover::before{
+
+    transform:translateX(140%);
 
 }
 
 .card:hover{
 
-transform:translateY(-8px);
+    transform:translateY(-8px);
 
-border-color:var(--gold);
+    border-color:var(--border-hover);
 
-box-shadow:0 18px 45px rgba(0,0,0,.55);
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.45),
+
+        0 0 20px rgba(212,176,109,.12);
 
 }
 
 .card span{
 
-display:block;
+    display:block;
 
-font-size:2rem;
+    font-size:2.2rem;
 
-margin-bottom:18px;
+    margin-bottom:20px;
 
 }
 
 .card h3{
 
-font-size:1.35rem;
+    font-size:1.35rem;
 
-margin-bottom:12px;
+    margin-bottom:12px;
 
 }
 
 .card p{
 
-font-size:.95rem;
+    font-size:.96rem;
 
-color:var(--text2);
+    line-height:2;
 
 }
+
 /* =======================================================
-                POEMS PAGE
+                    PAGE HEADER
 ======================================================= */
 
 .page-header{
 
-text-align:center;
+    text-align:center;
 
-margin:20px 0 45px;
+    margin:25px 0 50px;
 
-animation:fade .9s ease;
+    animation:fadeUp .8s ease;
 
 }
 
 .page-header h1{
 
-font-size:2.3rem;
+    font-size:2.5rem;
 
-margin-bottom:10px;
+    margin-bottom:12px;
 
 }
 
 .page-header p{
 
-color:var(--text2);
+    color:var(--text2);
 
-font-size:1rem;
-
-}
-
-/* ---------- Back Button ---------- */
-
-.back,
-.back-btn{
-
-display:inline-flex;
-
-align-items:center;
-
-gap:8px;
-
-padding:12px 22px;
-
-margin-bottom:40px;
-
-border-radius:30px;
-
-border:1px solid var(--border);
-
-background:rgba(255,255,255,.03);
-
-transition:var(--transition);
+    font-size:1.03rem;
 
 }
 
-.back:hover,
-.back-btn:hover{
-
-border-color:var(--gold);
-
-padding-right:30px;
-
-}
-
-/* ---------- Poems ---------- */
+/* =======================================================
+                    POEMS LIST
+======================================================= */
 
 .poems-list{
 
-display:grid;
+    display:grid;
 
-gap:18px;
+    gap:22px;
 
-margin-bottom:60px;
+    margin-bottom:70px;
 
 }
 
 .poem-card{
 
-display:block;
+    position:relative;
 
-padding:24px 28px;
+    overflow:hidden;
 
-background:rgba(255,255,255,.025);
+    display:block;
 
-border:1px solid var(--border);
+    padding:26px 30px;
 
-border-radius:16px;
+    border-radius:20px;
 
-transition:var(--transition);
+    background:linear-gradient(
 
-box-shadow:var(--shadow);
+        180deg,
+
+        rgba(255,255,255,.04),
+
+        rgba(255,255,255,.02)
+
+    );
+
+    border:1px solid var(--border);
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.poem-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.05),
+
+        transparent
+
+        );
+
+    transform:translateX(-140%);
+
+    transition:.8s;
+
+}
+
+.poem-card:hover::before{
+
+    transform:translateX(140%);
 
 }
 
 .poem-card:hover{
 
-border-color:var(--gold);
+    transform:translateY(-6px);
 
-transform:translateY(-5px);
+    border-color:var(--gold);
 
-background:rgba(255,255,255,.04);
+    box-shadow:
+
+        0 18px 42px rgba(0,0,0,.45),
+
+        0 0 18px rgba(212,176,109,.15);
 
 }
 
 .poem-card h2{
 
-font-size:1.2rem;
+    font-size:1.25rem;
 
-font-weight:500;
+    font-weight:600;
 
-transition:var(--transition);
+    transition:.35s;
 
 }
 
 .poem-card:hover h2{
 
-color:var(--gold);
+    color:var(--gold);
 
-padding-right:10px;
-
-}
-
-/* ---------- Collections ---------- */
-
-.collections{margin-top:70px;
+    padding-right:10px;
 
 }
 
-.collections h2{
-
-text-align:center;
-
-margin-bottom:30px;
-
-font-size:1.8rem;
-
-}
-
-.collection-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:24px;
-
-}
-
-.collection-card{
-
-padding:28px;
-
-background:rgba(255,255,255,.03);
-
-border:1px solid var(--border);
-
-border-radius:18px;
-
-text-align:center;
-
-transition:var(--transition);
-
-box-shadow:var(--shadow);
-
-}
-
-.collection-card:hover{
-
-transform:translateY(-7px);
-
-border-color:var(--gold);
-
-}
-
-.collection-card h3{
-
-margin-bottom:12px;
-
-font-size:1.3rem;
-
-}
-
-.collection-card p{
-
-color:var(--text2);
-
-}
-
-/* ---------- Latest ---------- */
+/* =======================================================
+                    LATEST POEM
+======================================================= */
 
 .latest{
 
-margin:80px auto;
+    margin:85px auto;
 
-padding:35px;
+    padding:38px;
 
-text-align:center;
+    text-align:center;
 
-background:rgba(255,255,255,.02);
+    border-radius:22px;
 
-border:1px solid var(--border);
+    background:linear-gradient(
 
-border-radius:20px;
+        180deg,
+
+        rgba(255,255,255,.03),
+
+        rgba(255,255,255,.015)
+
+    );
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
 
 }
 
 .latest h3{
 
-font-size:1.4rem;
+    font-size:1.5rem;
 
-margin-bottom:15px;
+    margin-bottom:18px;
 
 }
 
 .latest-link{
 
-font-size:1.35rem;
+    display:inline-block;
 
-color:var(--gold);
+    color:var(--gold);
 
-display:inline-block;
+    font-size:1.35rem;
 
-transition:var(--transition);
+    transition:.35s;
 
 }
 
 .latest-link:hover{
 
-transform:scale(1.06);
+    transform:translateY(-3px) scale(1.03);
 
-letter-spacing:1px;
+    letter-spacing:1px;
 
-}
+    text-shadow:
 
-/* ---------- Footer ---------- */
-
-footer{
-
-margin-top:80px;
-
-padding:35px 0;
-
-border-top:1px solid #222;
-
-text-align:center;
-
-color:#8d8d8d;
-
-font-size:.92rem;
-
-}
-
-footer p{
-
-margin:8px 0;
+        0 0 15px rgba(212,176,109,.35);
 
 }
 /* =======================================================
@@ -532,57 +754,83 @@ margin:8px 0;
 
 .poem{
 
-max-width:850px;
+    max-width:900px;
 
-margin:auto;
+    margin:auto;
 
-padding:20px;
+    padding:20px;
 
-animation:fade .9s ease;
+    position:relative;
+
+    z-index:2;
+
+    animation:fadeUp .8s ease;
 
 }
+
+/* ---------- Title ---------- */
 
 .poem-title{
 
-text-align:center;
+    text-align:center;
 
-font-size:2.2rem;
+    font-size:2.6rem;
 
-font-weight:700;
+    font-weight:800;
 
-margin-bottom:45px;
+    color:var(--gold);
 
-color:var(--gold);
+    margin-bottom:45px;
 
-letter-spacing:.5px;
+    letter-spacing:.5px;
+
+    transition:.35s;
 
 }
 
+.poem-title:hover{
+
+    text-shadow:
+
+        0 0 15px rgba(212,176,109,.35),
+
+        0 0 35px rgba(212,176,109,.18);
+
+}
+
+/* ---------- Poem Text ---------- */
+
 .poem-text{
 
-text-align:center;
+    text-align:center;
 
-font-size:1.18rem;
+    color:var(--text);
 
-line-height:2.6;
+    font-size:1.18rem;
 
-white-space:pre-line;
+    line-height:2.15;
 
-color:var(--text);
+    letter-spacing:.15px;
 
-padding:15px 5px;
+    word-spacing:2px;
+
+    white-space:pre-line;
+
+    padding:10px 5px;
+
+    text-rendering:optimizeLegibility;
 
 }
 
 .poem-text p{
 
-margin-bottom:22px;
+    margin-bottom:12px;
 
 }
 
 .poem-text br{
 
-line-height:3;
+    line-height:1.5;
 
 }
 
@@ -590,483 +838,712 @@ line-height:3;
 
 .divider{
 
-width:90px;
+    width:100px;
 
-height:2px;
+    height:2px;
 
-background:var(--gold);
+    margin:55px auto;
 
-margin:50px auto;
+    border-radius:50px;
 
-opacity:.6;
+    background:linear-gradient(
 
-border-radius:30px;
+        90deg,
+
+        transparent,
+
+        var(--gold),
+
+        transparent
+
+    );
+
+    opacity:.9;
 
 }
 
-/* ---------- Other Poems ---------- */
+/* =======================================================
+                OTHER POEMS
+======================================================= */
 
 .more-poems{
 
-margin-top:70px;
+    position:relative;
+
+    z-index:50;
+
+    margin-top:70px;
 
 }
 
 .more-poems h2{
 
-text-align:center;
+    text-align:center;
 
-font-size:1.5rem;
+    font-size:1.7rem;
 
-margin-bottom:25px;
+    margin-bottom:30px;
 
 }
+
+/* ---------- Grid ---------- */
 
 .more-grid{
 
-display:grid;
+    position:relative;
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    z-index:55;
 
-gap:18px;
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:20px;
 
 }
 
+/* ---------- Card ---------- */
+
 .more-grid a{
 
-display:block;
+    position:relative;
 
-padding:18px;
+    z-index:60;
 
-background:rgba(255,255,255,.03);
+    display:block;
 
-border:1px solid var(--border);
+    pointer-events:auto;
 
-border-radius:16px;
+    overflow:hidden;
 
-text-align:center;
+    padding:20px;
 
-transition:var(--transition);
+    text-align:center;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+
+        180deg,
+
+        rgba(255,255,255,.04),
+
+        rgba(255,255,255,.02)
+
+    );
+
+    border:1px solid var(--border);
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.more-grid a::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.05),
+
+        transparent
+
+    );
+
+    transform:translateX(-140%);
+
+    transition:.8s;
+
+}
+
+.more-grid a:hover::before{
+
+    transform:translateX(140%);
 
 }
 
 .more-grid a:hover{
 
-border-color:var(--gold);
+    transform:translateY(-6px);
 
-transform:translateY(-5px);
+    border-color:var(--gold);
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.45),
+
+        0 0 18px rgba(212,176,109,.15);
+
+}
+
+.more-grid a:active{
+
+    transform:scale(.98);
+
+}
+
+/* ---------- Text ---------- */
+
+.more-grid h3{
+
+    color:var(--text);
+
+    font-size:1.15rem;
+
+    transition:.35s;
+
+}
+
+.more-grid a:hover h3{
+
+    color:var(--gold);
+
+}
+
+/* ---------- Safety ---------- */
+
+.more-grid,
+.more-grid *{
+
+    pointer-events:auto;
+
+}
+
+/* ---------- Fix Click ---------- */
+
+.more-poems::before,
+
+.more-poems::after{
+
+    display:none;
 
 }
 
 /* =======================================================
-                ABOUT PAGE
+                POEM EFFECTS
+======================================================= */
+
+.poem-text::selection{
+
+    background:rgba(212,176,109,.85);
+
+    color:#111;
+
+}
+
+/* ---------- Fade ---------- */
+
+.poem-text p{
+
+    animation:fadeUp .5s ease;
+
+}
+
+/* ---------- Better Reading ---------- */
+
+.poem-text{
+
+    max-width:760px;
+
+    margin:auto;
+
+}
+
+/* ---------- End Of Poem ---------- */
+
+.poem-end{
+
+    text-align:center;
+
+    margin-top:35px;
+
+    color:var(--gold);
+
+    font-size:.95rem;
+
+    opacity:.7;
+
+}
+/* =======================================================
+                    ABOUT PAGE
 ======================================================= */
 
 .about{
 
-max-width:850px;
+    max-width:900px;
 
-margin:auto;
+    margin:auto;
 
-padding:20px;
+    padding:20px;
 
 }
 
 .about h1{
 
-text-align:center;
+    text-align:center;
 
-font-size:2.3rem;
+    font-size:2.5rem;
 
-margin-bottom:35px;
+    margin-bottom:40px;
+
+    color:var(--gold);
 
 }
 
 .about p{
 
-font-size:1.08rem;
+    font-size:1.08rem;
 
-line-height:2.4;
+    line-height:2.4;
 
-color:var(--text2);
+    color:var(--text2);
 
-margin-bottom:22px;
+    margin-bottom:22px;
 
 }
 
 .about strong{
 
-color:var(--gold);
+    color:var(--gold);
 
-font-weight:600;
+    font-weight:700;
 
 }
 
 /* =======================================================
-                DOBEYTI PAGE
+                    DOBEYTI
 ======================================================= */
 
 .dobeyti{
 
-max-width:850px;
+    max-width:900px;
 
-margin:auto;
+    margin:auto;
+
+    padding:10px;
 
 }
 
 .dobeyti h1{
 
-text-align:center;
+    text-align:center;
 
-font-size:2.2rem;
+    font-size:2.3rem;
 
-margin-bottom:40px;
+    color:var(--gold);
+
+    margin-bottom:40px;
 
 }
 
 .dobeyti-item{
 
-padding:28px;
+    background:linear-gradient(
 
-margin-bottom:25px;
+        180deg,
 
-border:1px solid var(--border);
+        rgba(255,255,255,.04),
 
-border-radius:18px;
+        rgba(255,255,255,.02)
 
-background:rgba(255,255,255,.025);
+    );
 
-transition:var(--transition);
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:28px;
+
+    margin-bottom:24px;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
 
 }
 
 .dobeyti-item:hover{
 
-border-color:var(--gold);
+    transform:translateY(-6px);
 
-transform:translateY(-4px);
+    border-color:var(--gold);
 
 }
 
 .dobeyti-item p{
 
-text-align:center;
+    text-align:center;
 
-line-height:2.5;
+    color:var(--text);
+
+    line-height:2.3;
 
 }
 
 /* =======================================================
-            DAFTAR MONFARED
+                    NOTE PAGE
 ======================================================= */
 
 .note{
 
-padding:26px;
+    background:linear-gradient(
 
-margin-bottom:24px;
+        180deg,
 
-background:rgba(255,255,255,.025);
+        rgba(255,255,255,.04),
 
-border:1px solid var(--border);
+        rgba(255,255,255,.02)
 
-border-radius:18px;
+    );
 
-transition:var(--transition);
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:28px;
+
+    margin-bottom:24px;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
 
 }
 
 .note:hover{
 
-border-color:var(--gold);
+    transform:translateY(-6px);
 
-transform:translateY(-4px);
+    border-color:var(--gold);
 
 }
 
 .note p{
 
-text-align:center;
+    color:var(--text);
 
-line-height:2.5;
+    text-align:center;
 
-font-size:1.05rem;
+    line-height:2.3;
+
 }
+
 /* =======================================================
-                RESPONSIVE
+                    COLLECTIONS
 ======================================================= */
 
-@media (max-width:900px){
+.collections{
+
+    margin-top:80px;
+
+}
+
+.collections h2{
+
+    text-align:center;
+
+    font-size:2rem;
+
+    margin-bottom:35px;
+
+}
+
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:24px;
+
+}
+
+.collection-card{
+
+    background:linear-gradient(
+
+        180deg,
+
+        rgba(255,255,255,.04),
+
+        rgba(255,255,255,.02)
+
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    box-shadow:var(--shadow);
+
+}
+
+.collection-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--gold);
+
+}
+
+.collection-card h3{
+
+    margin-bottom:14px;
+
+}
+
+.collection-card p{
+
+    color:var(--text2);
+
+}
+
+/* =======================================================
+                    FOOTER
+======================================================= */
+
+footer{
+
+    margin-top:90px;
+
+    padding:45px 20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+}
+
+footer p{
+
+    color:#9d9d9d;
+
+    margin:8px 0;
+
+    font-size:.95rem;
+
+}
+
+footer a{
+
+    color:var(--gold);
+
+}
+
+footer a:hover{
+
+    color:#f3d594;
+
+}
+
+/* =======================================================
+                    GLOBAL HOVER
+======================================================= */
+
+.card,
+
+.poem-card,
+
+.collection-card,
+
+.note,
+
+.dobeyti-item,
+
+.more-grid a{
+
+    will-change:transform;
+
+}
+
+/* =======================================================
+                    RESPONSIVE
+======================================================= */
+
+@media(max-width:900px){
+
+.container{
+
+    width:94%;
+
+}
 
 .hero{
 
-padding:50px 15px;
+    padding:70px 15px;
 
 }
 
 .hero h1{
 
-font-size:2.3rem;
+    font-size:2.6rem;
 
 }
 
 .hero h2{
 
-font-size:1.1rem;
-
-}
-
-.quote{
-
-font-size:.95rem;
-
-}
-
-.cards,
-.collection-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.poem-title{
-
-font-size:1.8rem;
-
-}
-
-.poem-text{
-
-font-size:1.08rem;
-
-line-height:2.4;
-
-}
-
-}
-
-@media (max-width:600px){
-
-.container{
-
-width:94%;
-
-padding:35px 0;
-
-}
-
-.card,
-.poem-card,
-.collection-card,
-.note,
-.dobeyti-item{
-
-padding:20px;
-
-}
-
-.hero h1{
-
-font-size:2rem;
+    font-size:1.15rem;
 
 }
 
 .page-header h1{
 
-font-size:1.9rem;
-
-}
-
-.about h1,
-.dobeyti h1{
-
-font-size:1.9rem;
+    font-size:2rem;
 
 }
 
 .poem-title{
 
-font-size:1.6rem;
+    font-size:2rem;
 
 }
 
 .poem-text{
 
-font-size:1rem;
+    font-size:1.08rem;
+
+    line-height:2;
+
+}
+
+.cards,
+
+.collection-grid,
+
+.more-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.container{
+
+    width:95%;
+
+    padding:35px 0;
+
+}
+
+.hero{
+
+    padding:50px 10px;
+
+}
+
+.hero h1{
+
+    font-size:2rem;
+
+}
+
+.hero h2{
+
+    font-size:1rem;
+
+}
+
+.quote{
+
+    font-size:.95rem;
+
+}
+
+.page-header h1{
+
+    font-size:1.8rem;
+
+}
+
+.about h1,
+
+.dobeyti h1{
+
+    font-size:1.9rem;
+
+}
+
+.poem-title{
+
+    font-size:1.7rem;
+
+}
+
+.poem-text{
+
+    font-size:1rem;
+
+    line-height:1.95;
+
+}
+
+.card,
+
+.poem-card,
+
+.collection-card,
+
+.note,
+
+.dobeyti-item{
+
+    padding:20px;
 
 }
 
 .latest{
 
-padding:25px;
+    padding:24px;
+
+}
+
+.more-grid{
+
+    gap:16px;
 
 }
 
 }
 
 /* =======================================================
-                HOVER EFFECTS
+                    FINAL
 ======================================================= */
 
-.card,
-.poem-card,
-.collection-card,
-.note,
-.dobeyti-item,
-.more-grid a{
+.fade{
 
-position:relative;
-
-overflow:hidden;
+    animation:fadeUp .8s ease both;
 
 }
 
-.card::before,
-.poem-card::before,
-.collection-card::before,
-.note::before,
-.dobeyti-item::before,
-.more-grid a::before{
+.hidden{
 
-content:"";
-
-position:absolute;
-
-top:0;
-
-right:-120%;
-
-width:100%;
-
-height:100%;
-
-background:linear-gradient(90deg,
-transparent,
-rgba(255,255,255,.05),
-transparent);
-
-transition:.8s;
+    display:none!important;
 
 }
 
-.card:hover::before,
-.poem-card:hover::before,
-.collection-card:hover::before,
-.note:hover::before,
-.dobeyti-item:hover::before,
-.more-grid a:hover::before{
+.visible{
 
-right:120%;
+    display:block!important;
 
 }
-
-/* =======================================================
-                GOLD GLOW
-======================================================= */
-
-.hero h1:hover,
-.poem-title:hover{
-
-text-shadow:
-
-0 0 10px rgba(212,176,109,.25),
-
-0 0 25px rgba(212,176,109,.18);
-
-transition:.4s;
-
-}
-
-/* =======================================================
-                BUTTON EFFECT
-======================================================= */
-
-.back,
-.back-btn{
-
-cursor:pointer;
-
-}
-
-.back:active,
-.back-btn:active{
-
-transform:scale(.96);
-
-}
-
-/* =======================================================
-                CARD CLICK
-======================================================= */
-
-.card:active,
-.poem-card:active,
-.collection-card:active{
-
-transform:scale(.98);
-
-}
-
-/* =======================================================
-                SMOOTH FADE
-======================================================= */
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-
-transform:translateY(18px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-.hero,
-.page-header,
-.card,
-.poem-card,
-.collection-card,
-.note,
-.dobeyti-item,
-.latest,
-.poem{
-
-animation:fade .8s ease;
-
-}
-
-/* =======================================================
-                TEXT
-======================================================= */
-
-h1,h2,h3{
-
-font-weight:700;
-
-}
-
-p{
-
-font-weight:400;
-
-}
-
-.gold{
-
-color:var(--gold);
-
-}
-
-/* =======================================================
-                END
-======================================================= */
