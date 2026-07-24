@@ -196,40 +196,39 @@ year.textContent=new Date().getFullYear();
 /* ==========================================
         Publish Dates
 ========================================== */
-
 const poemDates={
 
-"man.html":"۳ اسفند ۱۳۹۷",
+"man.html":"اسفند ۱۳۹۷",
 
-"rah-man.html":"۱۶ شهریور ۱۳۹۹",
+"rah-man.html":"شهریور ۱۳۹۹",
 
-"maghaze-khodkoshi.html":"۲۱ شهریور ۱۳۹۹",
+"maghaze-khodkoshi.html":"شهریور ۱۳۹۹",
 
-"sandali-choobi.html":"۱۳ آبان ۱۳۹۹",
+"sandali-choobi.html":"آبان ۱۳۹۹",
 
-"ghahghara.html":"۱۴ آبان ۱۳۹۹",
+"ghahghara.html":"آبان ۱۳۹۹",
 
-"miresad-roozi.html":"۱۶ آبان ۱۳۹۹",
+"miresad-roozi.html":"آبان ۱۳۹۹",
 
-"johar-ehsas.html":"۲۳ مرداد ۱۴۰۰",
+"johar-ehsas.html":"مرداد ۱۴۰۰",
 
-"sarbaz.html":" ۱۴۰۲ مهر",
+"sarbaz.html":"مهر ۱۴۰۲",
 
-"cheshm-entezar.html":"۳۱ مرداد ۱۴۰۱",
+"cheshm-entezar.html":"مرداد ۱۴۰۱",
 
-"sahne-akhar.html":"۲۰ مرداد ۱۴۰۱",
+"sahne-akhar.html":"مرداد ۱۴۰۱",
 
-"atashfeshan-eshgh.html":"۱۵ مرداد ۱۴۰۱",
+"atashfeshan-eshgh.html":"مرداد ۱۴۰۱",
 
-"dorough.html":"۱۵ مرداد ۱۴۰۱",
+"dorough.html":"مرداد ۱۴۰۱",
 
-"khaneh-bedoosh.html":"۱۶ مرداد ۱۴۰۱",
+"khaneh-bedoosh.html":"مرداد ۱۴۰۱",
 
-"naji.html":"۷ شهریور ۱۴۰۲",
+"naji.html":"شهریور ۱۴۰۲",
 
-"atash-eshgh.html":"۱۲ مهر ۱۴۰۲",
+"atash-eshgh.html":"مهر ۱۴۰۲",
 
-"monfared.html":"۳ مرداد ۱۴۰۵"
+"monfared.html":"مرداد ۱۴۰۵"
 
 };
 /* ==========================================
