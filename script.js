@@ -230,6 +230,8 @@ const poemDates={
 
 "monfared.html":"مرداد ۱۴۰۴"
 
+"madar.html": "مرداد ۱۴۰۵",
+
 };
 /* ==========================================
         Auto Publish Date
