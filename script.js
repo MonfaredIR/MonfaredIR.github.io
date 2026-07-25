@@ -228,9 +228,9 @@ const poemDates={
 
 "atash-eshgh.html":"مهر ۱۴۰۲",
 
-"monfared.html":"مرداد ۱۴۰۴"
+"monfared.html":"مرداد ۱۴۰۴",
 
-"madar.html": "مرداد ۱۴۰۵",
+"madar.html": "مرداد ۱۴۰۵"
 
 };
 /* ==========================================
